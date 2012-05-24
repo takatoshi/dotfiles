@@ -1,0 +1,132 @@
+"----------------------------------------------------
+" Vundle
+"----------------------------------------------------
+"filetype off
+"set rtp+=~/vimfiles/vundle/
+"call vundle#rc()
+"filetype plugin on
+
+"このプラグインだけうまくインストールできないので普通のプラグイン管理
+"filetype plugin indent on
+"-------------------------------------------
+"基本的な設定"
+"-------------------------------------------
+"vi互換モードオフ
+set nocompatible
+".vimrcファイル編集と再読み込みコマンド
+command! Ev edit $MYVIMRC
+command! Gv edit $MYGVIMRC
+command! Rv source $MYVIMRC
+"バックアップファイル、スワップファイル、viminfoファイル保存場所
+"set backupdir=$HOME/vimbackup
+"set directory=$HOME/vimbackup
+"バックアップファイル、スワップファイル、viminfoファイルを作成しない
+set noswapfile
+set nobackup
+"OSのクリップボードを使用する
+set clipboard+=unnamed
+"terminalで256色使う
+set t_Co=256
+"現在のディレクトリを開いているディレクトリに変更
+set autochdir
+"<Leader>キーの設定
+let mapleader = " "
+"コマンドライン補完を便利に
+set wildmenu
+"コマンドラインでの履歴の数
+set history=1000
+"コマンドラインに文字コード、改行コード表示
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+"他で書き換えられたら自動で読み直す
+set autoread
+"-------------------------------------------
+"表示設定
+"-------------------------------------------
+"行ナンバー表示
+set number
+"タブ周りの基本設定
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set nowrap
+set showtabline=2
+"カーソルのある行をハイライト(カレントウィンドウのみ)
+augroup cch
+  autocmd! cch
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter,BufRead * set cursorline
+augroup END
+highlight CursorLine ctermbg=black guibg=#003366
+"-------------------------------------------
+"編集設定
+"-------------------------------------------
+"バックスペースでなんでも消せるように
+set backspace=indent,eol,start
+"オートインデント
+set autoindent
+"インサートモードでもhjklで移動
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-h> <Left>
+imap <C-l> <Right>
+"ビジュアルモード時vで行末まで選択
+vnoremap v $h
+"<C-[>での誤爆を防止する
+imap <C-@> <C-[>
+"保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//ge
+"保存時に空白行の削除
+"autocmd BufWritePre * :g/^$/d
+"insertモードを抜けるとIMEオフ
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+"F4、F5でタブ移動
+map <F4> :tabprevious<CR>
+map <F5> :tabnext<CR>
+"F6で新規タブ
+map <f6> :tabnew<cr>
+"-------------------------------------------
+"検索設定
+"-------------------------------------------
+"検索時に大文字小文字を無視 (noignorecase:無視しない)
+set ignorecase
+"検索時に大文字を含んでいたら大/小を区別
+set smartcase
+"インクリメントサーチしない。
+set noincsearch
+"検索語が画面の真ん中に来るようにする †
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+"-------------------------------------------
+"キーマッピング設定
+"-------------------------------------------
+noremap <C-M> <insert><CR><ESC>
+"-------------------------------------------
+"シンタックス設定
+"-------------------------------------------
+"phpのインデント設定
+au FileType php set ts=4 sw=4 softtabstop=4
+"xでレジスタに入れないようにする
+nnoremap x "_x
+"format.vim設定
+let format_join_spaces=2
+let format_allow_over_tw=0
+"テキスト幅
+set textwidth=10
+set nolinebreak
+"勝手に改行されないようにする
+set formatoptions=q
+"カラー設定
+set t_Co=256
+colorscheme elflord
+"ファイルを開いたときに、カレントディレクトリを変更
+augroup grlcd
+  autocmd!
+  autocmd BufEnter * lcd %:p:h
+augroup END
