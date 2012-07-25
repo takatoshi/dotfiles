@@ -1,5 +1,5 @@
 "カラースキーマファイル設定
-colorscheme elflord
+colorscheme desert
 "透明度設定
 set transparency=25
 set guioptions-=T
