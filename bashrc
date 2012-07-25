@@ -1,0 +1,8 @@
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ls='ls -a'
+alias vm='VBoxManage startvm "CentOS_5_7" --type headless'
+alias vmq='VBoxManage controlvm "CentOS_5_7" poweroff'
+alias vmlogin='sudo ssh -l admin 192.168.56.101'
+alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab-silent'
