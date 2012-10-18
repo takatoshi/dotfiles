@@ -8,9 +8,9 @@ if [ $(uname) = "Darwin" ]; then
 
   alias ls='ls -Ga'
 
-  alias vm='VBoxManage startvm "CentOS_5_7" --type headless'
-  alias vmq='VBoxManage controlvm "CentOS_5_7" poweroff'
-  alias vmlogin='sudo ssh -l admin 192.168.56.101'
+  alias vm='VBoxManage startvm "Ubuntu 10.04.1" --type headless'
+  alias vmq='VBoxManage controlvm "Ubuntu 10.04.1" poweroff'
+  alias vmlogin='sudo ssh -l admin 192.168.56.100'
 elif [ $(uname) = "Linux" ]; then
   alias ls='ls -a --color=auto'
 fi

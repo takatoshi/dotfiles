@@ -1,0 +1,6 @@
+[submodule "bundle/vim-pathogen"]
+	path = bundle/vim-pathogen
+	url = git://github.com/tpope/vim-pathogen.git
+[submodule "bundle/vim-sudo"]
+	path = bundle/vim-sudo
+	url = git://github.com/vim-scripts/sudo.vim.git
