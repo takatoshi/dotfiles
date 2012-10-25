@@ -1,16 +1,3 @@
-"----------------------------------------------------
-" Vundle
-"----------------------------------------------------
-"filetype off
-"set rtp+=~/vimfiles/vundle/
-"call vundle#rc()
-"filetype plugin on
-
-"このプラグインだけうまくインストールできないので普通のプラグイン管理
-"filetype plugin indent on
-"-------------------------------------------
-"基本的な設定"
-"-------------------------------------------
 "vi互換モードオフ
 set nocompatible
 ".vimrcファイル編集と再読み込みコマンド
@@ -130,3 +117,8 @@ augroup grlcd
   autocmd!
   autocmd BufEnter * lcd %:p:h
 augroup END
+"エンコーディング
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,shift-jis,euc-jp
+set fileformats=unix,mac,dos
