@@ -10,7 +10,7 @@ if [ $(uname) = "Darwin" ]; then
 
   alias vm='VBoxManage startvm "Ubuntu 10.04.1" --type headless'
   alias vmq='VBoxManage controlvm "Ubuntu 10.04.1" poweroff'
-  alias vmlogin='sudo ssh -l takatoshi 192.168.56.100'
+  alias vmlogin='ssh -l takatoshi 192.168.56.100'
 elif [ $(uname) = "Linux" ]; then
   alias ls='ls -a --color=auto'
 fi
