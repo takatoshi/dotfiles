@@ -1,6 +1,3 @@
-"-------------------------------------------
-"基本的な設定"
-"-------------------------------------------
 "vi互換モードオフ
 set nocompatible
 ".vimrcファイル編集と再読み込みコマンド
@@ -124,3 +121,8 @@ augroup END
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 set helpfile=$VIMRUNTIME/doc/help.txt
+"エンコーディング
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,shift-jis,euc-jp
+set fileformats=unix,mac,dos
