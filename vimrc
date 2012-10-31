@@ -1,13 +1,3 @@
-"----------------------------------------------------
-" Vundle
-"----------------------------------------------------
-"filetype off
-"set rtp+=~/vimfiles/vundle/
-"call vundle#rc()
-"filetype plugin on
-
-"このプラグインだけうまくインストールできないので普通のプラグイン管理
-"filetype plugin indent on
 "-------------------------------------------
 "基本的な設定"
 "-------------------------------------------
@@ -124,9 +114,13 @@ set nolinebreak
 set formatoptions=q
 "カラー設定
 set t_Co=256
-colorscheme elflord
+colorscheme desert
 "ファイルを開いたときに、カレントディレクトリを変更
 augroup grlcd
   autocmd!
   autocmd BufEnter * lcd %:p:h
 augroup END
+"pathogenでプラグイン管理
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+set helpfile=$VIMRUNTIME/doc/help.txt
