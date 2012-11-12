@@ -1,5 +1,13 @@
 PS1='\[\033[40;1;32m\]\u\[\033[1;32m\]@\[\033[0m\]\[\033[40;1;32m\]\h \[\033[1;36m\]\w \[\033[0m\]\[\033[40;37m\]\d \t\[\033[0m\]\n\\$ '
 
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+function proml {
+  PS1="\[\033[40;1;32m\]\u\[\033[1;32m\]@\[\033[0m\]\[\033[40;1;32m\]\h \[\033[1;36m\]\w\$(parse_git_branch) \[\033[0m\]\[\033[40;37m\]\d \t\[\033[0m\]\n\\$ "
+}
+proml
+
 if [ $(uname) = "Darwin" ]; then
   export EDITOR=/Applicatins/MacVim.app/Contents/MacOS/Vim
 
