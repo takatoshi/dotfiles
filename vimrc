@@ -1,5 +1,16 @@
 "vi互換モードオフ
 set nocompatible
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'thinca/vim-scouter'
+
+
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
 command! Gv edit $MYGVIMRC
@@ -66,9 +77,6 @@ autocmd BufWritePre * :%s/\s\+$//ge
 "保存時に空白行の削除
 "autocmd BufWritePre * :g/^$/d
 "insertモードを抜けるとIMEオフ
-set noimdisable
-set iminsert=0 imsearch=0
-set noimcmdline
 "F4、F5でタブ移動
 map <F4> :tabprevious<CR>
 map <F5> :tabnext<CR>
@@ -101,9 +109,6 @@ noremap <C-M> <insert><CR><ESC>
 au FileType php set ts=2 sw=2 softtabstop=2
 "xでレジスタに入れないようにする
 nnoremap x "_x
-"format.vim設定
-let format_join_spaces=2
-let format_allow_over_tw=0
 "テキスト幅
 set textwidth=10
 set nolinebreak
@@ -123,4 +128,24 @@ set fileformats=unix,mac,dos
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 "ビープ音をなくす
-set visualbell
+set noerrorbells
+set novisualbell
+set visualbell t_vb=
+"タイトル
+set title
+"ハイライト有効
+if &t_Co > 2 || has('gui_running')
+  syntax on
+endif
+"コマンドラインの高さ
+set cmdheight=2
+set laststatus=2
+"コマンドをステータス行表示
+set showcmd
+"改行時の自動コメント挿入のオフ
+autocmd FileType * setlocal formatoptions-=ro
+
+command!
+\   -nargs=* -complete=mapping
+\   AllMaps
+\   map <args> | map! <args> | lmap <args>
