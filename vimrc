@@ -98,7 +98,7 @@ noremap <C-M> <insert><CR><ESC>
 "シンタックス設定
 "-------------------------------------------
 "phpのインデント設定
-au FileType php set ts=4 sw=4 softtabstop=4
+au FileType php set ts=2 sw=2 softtabstop=2
 "xでレジスタに入れないようにする
 nnoremap x "_x
 "format.vim設定
@@ -109,20 +109,18 @@ set textwidth=10
 set nolinebreak
 "勝手に改行されないようにする
 set formatoptions=q
-"カラー設定
-set t_Co=256
-colorscheme desert
 "ファイルを開いたときに、カレントディレクトリを変更
 augroup grlcd
   autocmd!
   autocmd BufEnter * lcd %:p:h
 augroup END
-"pathogenでプラグイン管理
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-set helpfile=$VIMRUNTIME/doc/help.txt
 "エンコーディング
 set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,shift-jis,euc-jp
 set fileformats=unix,mac,dos
+"不可視文字を表示
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+"ビープ音をなくす
+set visualbell
