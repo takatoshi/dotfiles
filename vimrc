@@ -8,6 +8,7 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimproc'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'thinca/vim-scouter'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -39,6 +40,8 @@ set nobackup
 set clipboard+=unnamed
 "terminalで256色使う
 set t_Co=256
+"カラースキーム
+colorscheme molokai
 "現在のディレクトリを開いているディレクトリに変更
 set autochdir
 "<Leader>キーの設定
@@ -164,4 +167,3 @@ command!
 \   -nargs=* -complete=mapping
 \   AllMaps
 \   map <args> | map! <args> | lmap <args>
-colorscheme molokai
