@@ -9,7 +9,20 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'thinca/vim-scouter'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'vim-scripts/Lucius'
+NeoBundle 'vim-scripts/Zenburn'
+NeoBundle 'mrkn/mrkn256.vim'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'therubymug/vim-pyte'
+NeoBundle 'tomasr/molokai'
 
+" カラースキーム一覧表示に Unite.vim を使う
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
@@ -50,12 +63,13 @@ set tabstop=2
 set nowrap
 set showtabline=2
 "カーソルのある行をハイライト(カレントウィンドウのみ)
-augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
-augroup END
-highlight CursorLine ctermbg=black guibg=#003366
+set cursorline
+set cursorcolumn
+highlight CursorLine ctermbg=Black
+highlight CursorLine ctermfg=Blue
+highlight CursorColumn ctermbg=Blue
+highlight CursorColumn ctermfg=Green
+
 "-------------------------------------------
 "編集設定
 "-------------------------------------------
@@ -149,3 +163,4 @@ command!
 \   -nargs=* -complete=mapping
 \   AllMaps
 \   map <args> | map! <args> | lmap <args>
+colorscheme molokai
