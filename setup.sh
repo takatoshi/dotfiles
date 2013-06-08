@@ -7,3 +7,7 @@ ln -s ~/dotfiles/bash_profile ~/.bash_profile
 
 #gitのカラー自動設定
 git config --global color.ui "auto"
+
+#NeoBundleのサブモジュール
+git submodule init -- vim/bundle/neobundle.vim
+git submodule update -- vim/bundle/neobundle.vim
