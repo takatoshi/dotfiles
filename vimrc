@@ -1,6 +1,7 @@
 "vi互換モードオフ
 set nocompatible
 
+"NeoBundle
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -9,8 +10,13 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'thinca/vim-scouter'
+
+"colorscheme
+"一覧表示
+NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'croaker/mustang-vim'
 NeoBundle 'jeffreyiacono/vim-colors-wombat'
@@ -21,10 +27,8 @@ NeoBundle 'mrkn/mrkn256.vim'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
-
-" カラースキーム一覧表示に Unite.vim を使う
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
+"PowerLine
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
@@ -41,7 +45,7 @@ set clipboard+=unnamed
 "terminalで256色使う
 set t_Co=256
 "カラースキーム
-colorscheme molokai
+colorscheme jellybeans
 "現在のディレクトリを開いているディレクトリに変更
 set autochdir
 "<Leader>キーの設定
@@ -160,10 +164,10 @@ set cmdheight=2
 set laststatus=2
 "コマンドをステータス行表示
 set showcmd
-"改行時の自動コメント挿入のオフ
-autocmd FileType * setlocal formatoptions-=ro
-
+"全Map設定を表示
 command!
 \   -nargs=* -complete=mapping
 \   AllMaps
 \   map <args> | map! <args> | lmap <args>
+"PowerLine設定
+let g:Powerline_symbols = 'fancy'
