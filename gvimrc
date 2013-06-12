@@ -1,5 +1,5 @@
 "カラースキーマファイル設定
-colorscheme desert
+colorscheme jellybeans
 "透明度設定
 set transparency=25
 set guioptions-=T
@@ -63,14 +63,8 @@ if has('win32')
     set ambiwidth=auto
   endif
 elseif has('gui_macvim')
-  set guifont=Osaka－等幅:h20
+  set guifont=Ricty\ for\ Powerline:h16
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
   set guifontset=a14,r14,k14
 endif
-
-"挿入モードとノーマルモードでステータスラインの色変更
-au InsertEnter * hi StatusLine guifg=Black guibg=Green gui=none
-ctermfg=Blue ctermbg=Yellow cterm=none
-au InsertLeave * hi StatusLine guifg=White guibg=Blue gui=none
-ctermfg=Blue ctermbg=DarkGray cterm=none

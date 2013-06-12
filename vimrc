@@ -29,6 +29,7 @@ NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
 "PowerLine
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'kana/vim-fakeclip'
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
