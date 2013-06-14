@@ -1,10 +1,10 @@
 #シンボリックリンク作成
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/gvimrc ~/.gvimrc
-ln -s ~/dotfiles/bashrc ~/.bashrc
-ln -s ~/dotfiles/bash_profile ~/.bash_profile
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/vim ~/.vim
+ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/gvimrc ~/.gvimrc
+ln -sf ~/dotfiles/bashrc ~/.bashrc
+ln -sf ~/dotfiles/bash_profile ~/.bash_profile
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 #gitのカラー自動設定
 git config --global color.ui "auto"
