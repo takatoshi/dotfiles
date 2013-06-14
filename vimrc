@@ -129,7 +129,7 @@ noremap <C-M> <insert><CR><ESC>
 "シンタックス設定
 "-------------------------------------------
 "phpのインデント設定
-au FileType php set ts=2 sw=2 softtabstop=2
+au FileType php set ts=4 sw=4 softtabstop=4
 "xでレジスタに入れないようにする
 nnoremap x "_x
 "テキスト幅
