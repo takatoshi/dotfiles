@@ -19,7 +19,6 @@ alias cp='cp -i'
 alias be="vim ~/.zshrc;source ~/.zshrc"
 alias where="command -v"
 alias j="jobs -l"
-alias ls="ls -G -w -a"
 alias lf="ls -F"
 alias ll="ls -l"
 alias du="du -h"
