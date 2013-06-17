@@ -25,4 +25,4 @@ fi
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-alias be="vi ~/.bashrc;source ~/.bashrc"
+alias be="vim ~/.bashrc;source ~/.bashrc"
