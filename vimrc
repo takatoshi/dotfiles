@@ -112,8 +112,8 @@ map <f6> :tabnew<cr>
 set ignorecase
 "検索時に大文字を含んでいたら大/小を区別
 set smartcase
-"インクリメントサーチしない。
-set noincsearch
+"インクリメントサーチ
+set incsearch
 "検索語が画面の真ん中に来るようにする †
 nmap n nzz
 nmap N Nzz

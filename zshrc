@@ -41,7 +41,8 @@ case ${UID} in
         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
     ;;
 *)
-    PROMPT="%{[31m%}%/%%%{[m%} "
+    PROMPT="%F{green}%n@%m%f %F{cyan}%~%f %F{white}%D{%m/%d %T}
+%(!.#.$)%f "
     PROMPT2="%{[31m%}%_%%%{[m%} "
     SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
@@ -62,6 +63,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups
 setopt share_history
+# history search
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 # キーバインドをemacsに
 # bindkey -e
 # auto_cd
