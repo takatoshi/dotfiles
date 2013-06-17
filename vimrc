@@ -17,19 +17,15 @@ NeoBundle 'thinca/vim-scouter'
 "colorscheme
 "一覧表示
 NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'croaker/mustang-vim'
-NeoBundle 'jeffreyiacono/vim-colors-wombat'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'vim-scripts/Lucius'
-NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'mrkn/mrkn256.vim'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
 "PowerLine
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+"tmuxとのクリップボード連携
 NeoBundle 'kana/vim-fakeclip'
+"ファイルツリー
+NeoBundle 'scrooloose/nerdtree'
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
