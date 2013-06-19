@@ -26,6 +26,8 @@ NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'kana/vim-fakeclip'
 "ファイルツリー
 NeoBundle 'scrooloose/nerdtree'
+"シンタックスチェック
+NeoBundle 'scrooloose/syntastic'
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
@@ -168,3 +170,29 @@ command!
 \   map <args> | map! <args> | lmap <args>
 "PowerLine設定
 let g:Powerline_symbols = 'fancy'
+
+" PHPの辞書補完設定
+autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
+
+" Neocomplcacheの設定
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_manual_completion_start_length = 0
+let g:neocomplcache_caching_percent_in_statusline = 1
+let g:neocomplcache_enable_skip_completion = 1
+let g:neocomplcache_skip_input_time = '0.5'
+
+" syntastic設定
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_echo_current_error = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_enable_highlighting = 1
+" なんでか分からないけど php コマンドのオプションを上書かないと動かなかった
+let g:syntastic_php_php_args = '-l'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*

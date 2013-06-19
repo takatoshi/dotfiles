@@ -10,6 +10,10 @@ if [ $(uname) = "Darwin" ]; then
   alias vm='VBoxManage startvm "Ubuntu 10.04.1" --type headless'
   alias vmq='VBoxManage controlvm "Ubuntu 10.04.1" poweroff'
   alias vmlogin='ssh -l takatoshi 192.168.56.100'
+
+  # 言語
+  export LANG=ja_JP.UTF-8
+
 elif [ $(uname) = "Linux" ]; then
   alias ls='ls -a --color=auto'
 fi
@@ -28,8 +32,6 @@ alias su="su -l"
 # 補完機能
 autoload -U compinit
 compinit
-# 言語
-export LANG=ja_JP.UTF-8
 # プロンプト
 case ${UID} in
 0)
