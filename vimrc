@@ -193,3 +193,6 @@ let g:syntastic_loc_list_height = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"ctagsのタグファイル
+set tags+=~/.tags
