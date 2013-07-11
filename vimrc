@@ -9,11 +9,17 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc', {
+    \'build' : {
+    \  'windows' : 'make -f make_mingw32.mak',
+    \  'cygwin' : 'make -f make_cygwin.mak',
+    \  'mac' : 'make -f make_mac.mak',
+    \  'unix' : 'make -f make_unix.mak',
+    \},
+\}
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'thinca/vim-scouter'
-
 "colorscheme
 "一覧表示
 NeoBundle 'ujihisa/unite-colorscheme'
