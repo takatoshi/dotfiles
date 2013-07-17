@@ -16,7 +16,6 @@ rm -f ~/dotfiles/vim/vim
 
 #git設定
 git config --global color.ui "auto"
-git config --global core.pager ''
 git config --global user.email $USER@$HOST
 git config --global user.name $USER
 
@@ -27,4 +26,3 @@ git submodule update -- vim/bundle/neobundle.vim
 #tmux-powerlineのサブモジュール
 git submodule init -- tmux-powerline
 git submodule update -- tmux-powerline
-
