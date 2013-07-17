@@ -39,6 +39,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'taglist.vim'
 "カーソ下のURL,単語を検索エンジンで検索
 NeoBundle 'tyru/open-browser.vim'
+"テキストを括弧で囲む/削除する
+NeoBundle 'tpope/vim-surround'
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
