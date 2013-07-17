@@ -30,6 +30,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 "tmuxとのクリップボード連携
 NeoBundle 'kana/vim-fakeclip'
+NeoBundle 'vim-scripts/yanktmp.vim'
 "ファイルツリー
 NeoBundle 'scrooloose/nerdtree'
 "シンタックスチェック
@@ -202,3 +203,8 @@ set statusline+=%*
 
 "ctagsのタグファイル
 set tags+=~/.tags
+
+"Yanktmpキーマッピング
+map <silent> sy :call YanktmpYank()<CR>
+map <silent> sp :call YanktmpPaste_p()<CR>
+map <silent> sP :call YanktmpPaste_P()<CR>

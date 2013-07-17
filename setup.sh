@@ -1,7 +1,5 @@
 #!/bin/sh
 
-source ~/.zshrc
-
 #シンボリックリンク作成
 ln -sf ~/dotfiles/vim ~/.vim
 ln -sf ~/dotfiles/vimrc ~/.vimrc
