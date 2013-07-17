@@ -29,12 +29,16 @@ NeoBundle 'tomasr/molokai'
 "PowerLine
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 "tmuxとのクリップボード連携
-NeoBundle 'kana/vim-fakeclip'
+"NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'vim-scripts/yanktmp.vim'
 "ファイルツリー
 NeoBundle 'scrooloose/nerdtree'
 "シンタックスチェック
 NeoBundle 'scrooloose/syntastic'
+"ソースコード上のメソッド宣言、変数宣言の一覧表示
+NeoBundle 'taglist.vim'
+"カーソ下のURL,単語を検索エンジンで検索
+NeoBundle 'tyru/open-browser.vim'
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
@@ -208,3 +212,7 @@ set tags+=~/.tags
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
+
+"OpenBrowser
+nmap <Space>op <Plug>(openbrowser-smart-search)
+vmap <Space>op <Plug>(openbrowser-smart-search)
