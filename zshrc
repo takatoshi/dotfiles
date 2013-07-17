@@ -47,7 +47,7 @@ case ${UID} in
 esac
 # タイトル
 case "${TERM}" in
-kterm*|xterm)
+kterm*|xterm*)
     precmd() {
         echo -ne "\033]0;${USER}@${HOST%%.*}\007"
     }
