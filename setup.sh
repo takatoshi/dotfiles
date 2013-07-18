@@ -1,16 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 #シンボリックリンク作成
-ln -sf ~/dotfiles/vim ~/.vim
-ln -sf ~/dotfiles/vimrc ~/.vimrc
-ln -sf ~/dotfiles/gvimrc ~/.gvimrc
-ln -sf ~/dotfiles/bashrc ~/.bashrc
-ln -sf ~/dotfiles/zshrc ~/.zshrc
-ln -sf ~/dotfiles/bash_profile ~/.bash_profile
-ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile )
 
-# なぜか生成されてしまうファイル削除
-rm -f ~/dotfiles/vim/vim
+for file in ${DOT_FILES[@]}
+do
+    rm -f $HOME/.$file
+    ln -s $HOME/dotfiles/$file $HOME/.$file
+done
 
 #git設定
 git config --global color.ui "auto"
