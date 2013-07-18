@@ -53,7 +53,7 @@ command! Rv source $MYVIMRC
 set noswapfile
 set nobackup
 "OSのクリップボードを使用する
-set clipboard+=unnamed
+"set clipboard+=unnamed
 "terminalで256色使う
 set t_Co=256
 "カラースキーム
