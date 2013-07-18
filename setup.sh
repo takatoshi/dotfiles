@@ -24,3 +24,6 @@ git submodule update -- vim/bundle/neobundle.vim
 #tmux-powerlineのサブモジュール
 git submodule init -- tmux-powerline
 git submodule update -- tmux-powerline
+
+# NeoBundleInstall
+vim -c NeoBundleInstall -c q
