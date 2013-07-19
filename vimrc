@@ -41,6 +41,8 @@ NeoBundle 'taglist.vim'
 NeoBundle 'tyru/open-browser.vim'
 "テキストを括弧で囲む/削除する
 NeoBundle 'tpope/vim-surround'
+"Unite BEAR
+NeoBundle 'zukimochi/unite-bear'
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
@@ -84,11 +86,11 @@ set nowrap
 set showtabline=2
 "カーソルのある行をハイライト(カレントウィンドウのみ)
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 highlight CursorLine ctermbg=Black
 highlight CursorLine ctermfg=Blue
-highlight CursorColumn ctermbg=Blue
-highlight CursorColumn ctermfg=Green
+"highlight CursorColumn ctermbg=Blue
+"highlight CursorColumn ctermfg=Green
 
 "-------------------------------------------
 "編集設定
