@@ -86,11 +86,8 @@ set nowrap
 set showtabline=2
 "カーソルのある行をハイライト(カレントウィンドウのみ)
 set cursorline
-"set cursorcolumn
 highlight CursorLine ctermbg=Black
 highlight CursorLine ctermfg=Blue
-"highlight CursorColumn ctermbg=Blue
-"highlight CursorColumn ctermfg=Green
 
 "-------------------------------------------
 "編集設定
@@ -217,6 +214,23 @@ map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
 
-"OpenBrowser
+"[OpenBrowser
 nmap <Space>op <Plug>(openbrowser-smart-search)
 vmap <Space>op <Plug>(openbrowser-smart-search)
+
+"Unite.vim"
+let g:unite_source_menu_menus = {
+\   "shortcut" : {
+\       "description" : "sample unite-menu",
+\       "command_candidates" : [
+\           ["edit vimrc", "edit $MYVIMRC"],
+\           ["edit gvimrc", "edit $MYGVIMRC"],
+\           ["unite-file_mru", "Unite file_mru"],
+\           ["Unite Beautiful Attack", "Unite -auto-preview colorscheme"],
+\           ["unite-output:message", "Unite output:message"],
+\       ],
+\   },
+\}
+let g:unite_enable_split_vertically = 1
+let g:unite_winwidth = 70
+let g:unite_source_history_yank_enable = 1
