@@ -43,6 +43,9 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-surround'
 "Unite BEAR
 NeoBundle 'zukimochi/unite-bear'
+"Snippet
+NeoBundle 'Shougo/neosunippet'
+
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
@@ -209,11 +212,6 @@ set statusline+=%*
 "ctagsのタグファイル
 set tags+=~/.tags
 
-"Yanktmpキーマッピング
-map <silent> sy :call YanktmpYank()<CR>
-map <silent> sp :call YanktmpPaste_p()<CR>
-map <silent> sP :call YanktmpPaste_P()<CR>
-
 "[OpenBrowser
 nmap <Space>op <Plug>(openbrowser-smart-search)
 vmap <Space>op <Plug>(openbrowser-smart-search)
@@ -239,3 +237,9 @@ nnoremap <Space>ub :<C-u>Unite buffer<CR>
 nnoremap <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <Space>ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <Space>uu :<C-u>Unite file_mru buffer<CR>
+
+"p()で囲ってみるテスト
+nmap <Space>bp $xyss)^<insert>p<ESC>A;
+nmap <Space>bP ^xds)
+"$this->つけてみる
+nmap <Space>$t ^<insert>$this-><ESC>
