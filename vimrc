@@ -234,3 +234,8 @@ let g:unite_source_menu_menus = {
 let g:unite_enable_split_vertically = 1
 let g:unite_winwidth = 70
 let g:unite_source_history_yank_enable = 1
+nnoremap <Space>uy :<C-u>Unite history/yank<CR>
+nnoremap <Space>ub :<C-u>Unite buffer<CR>
+nnoremap <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <Space>ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <Space>uu :<C-u>Unite file_mru buffer<CR>
