@@ -162,7 +162,7 @@ let g:neocomplcache_skip_input_time = '0.5'
 " syntastic設定
 let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_auto_jump = 1
+"let g:syntastic_auto_jump = 1
 let g:syntastic_loc_list_height = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -175,7 +175,9 @@ set tags+=~/.tags
 nmap <Space>op <Plug>(openbrowser-smart-search)
 vmap <Space>op <Plug>(openbrowser-smart-search)
 
-"Unite.vim"
+"-------------------------------------------------------------------------------
+" unite.vim
+"-------------------------------------------------------------------------------
 let g:unite_source_menu_menus = {
 \   "shortcut" : {
 \       "description" : "sample unite-menu",
@@ -191,6 +193,7 @@ let g:unite_source_menu_menus = {
 let g:unite_enable_split_vertically = 1
 let g:unite_winwidth = 70
 let g:unite_source_history_yank_enable = 1
+let g:unite_enable_start_insert = 1
 nnoremap <Space>uy :<C-u>Unite history/yank<CR>
 nnoremap <Space>ub :<C-u>Unite buffer<CR>
 nnoremap <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -201,10 +204,25 @@ nnoremap <Space>uu :<C-u>Unite file_mru buffer<CR>
 nmap <Space>bp $xyss)^<insert>p<ESC>A;
 nmap <Space>bP ^xds)
 "$this->つけてみる
-nmap <Space>$t ^<insert>$this-><ESC>
+nmap <Space>$t <insert>$this-><ESC>
 
-"smartword
-map w  <Plug>(smartword-w)
-map b  <Plug>(smartword-b)
-map e  <Plug>(smartword-e)
-map ge  <Plug>(smartword-ge)
+"camelcasemotion
+map w  <Plug>CamelCaseMotion_w
+map b  <Plug>CamelCaseMotion_b
+map e  <Plug>CamelCaseMotion_e
+
+nnoremap [unite] <Nop>
+nmap f [unite]
+
+nnoremap <silent> [unite]u :<C-u>Unite<Space>
+
+"-------------------------------------------------------------------------------
+" unite-bear
+"-------------------------------------------------------------------------------
+nnoremap <Space>bh :<C-u>Unite bear/htdocs<CR>
+nnoremap <Space>ba :<C-u>Unite bear/App<CR>
+nnoremap <Space>bf :<C-u>Unite bear/Form<CR>
+"nnoremap <Space>bp :<C-u>Unite bear/Page<CR>
+nnoremap <Space>br :<C-u>Unite bear/Ro<CR>
+nnoremap <Space>bl :<C-u>Unite bear/libs<CR>
+nnoremap <Space>bv :<C-u>Unite bear/views<CR>

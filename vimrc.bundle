@@ -63,19 +63,16 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tpope/vim-surround'
 
 "Snippet
-"NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet.vim'
 
 " various langueages snippets
-"NeoBundle 'honza/snipmate-snippets'
+NeoBundle 'honza/snipmate-snippets'
 
 "ソースコード上のメソッド宣言、変数宣言の一覧表示
 NeoBundle 'taglist.vim'
-
-" vim-smartword : 単語移動がスマートな感じで
-NeoBundle 'smartword'
 
 " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
 NeoBundle 'camelcasemotion'
 
 " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
-"NeoBundle 'scrooloose/nerdcommenter.git'
+NeoBundle 'scrooloose/nerdcommenter.git'
