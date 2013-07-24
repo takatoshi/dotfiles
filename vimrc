@@ -1,51 +1,8 @@
+"NeoBundleで管理しているプラグインを読み込む
+source ~/dotfiles/vimrc.bundle
+
 "vi互換モードオフ
 set nocompatible
-
-"NeoBundle
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc', {
-    \'build' : {
-    \  'windows' : 'make -f make_mingw32.mak',
-    \  'cygwin' : 'make -f make_cygwin.mak',
-    \  'mac' : 'make -f make_mac.mak',
-    \  'unix' : 'make -f make_unix.mak',
-    \},
-\}
-NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'thinca/vim-scouter'
-"colorscheme
-"一覧表示
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'vim-scripts/Lucius'
-NeoBundle 'tomasr/molokai'
-"PowerLine
-NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-"tmuxとのクリップボード連携
-"NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'vim-scripts/yanktmp.vim'
-"ファイルツリー
-NeoBundle 'scrooloose/nerdtree'
-"シンタックスチェック
-NeoBundle 'scrooloose/syntastic'
-"ソースコード上のメソッド宣言、変数宣言の一覧表示
-NeoBundle 'taglist.vim'
-"カーソ下のURL,単語を検索エンジンで検索
-NeoBundle 'tyru/open-browser.vim'
-"テキストを括弧で囲む/削除する
-NeoBundle 'tpope/vim-surround'
-"Unite BEAR
-NeoBundle 'zukimochi/unite-bear'
-"Snippet
-NeoBundle 'Shougo/neosunippet'
-
 
 ".vimrcファイル編集と再読み込みコマンド
 command! Ev edit $MYVIMRC
@@ -178,11 +135,13 @@ set cmdheight=2
 set laststatus=2
 "コマンドをステータス行表示
 set showcmd
-"全Map設定を表示
-command!
-\   -nargs=* -complete=mapping
-\   AllMaps
-\   map <args> | map! <args> | lmap <args>
+
+"autoload
+augroup vimrc-checktime
+autocmd!
+autocmd WinEnter * checktime
+augroup END
+
 "PowerLine設定
 let g:Powerline_symbols = 'fancy'
 
@@ -243,3 +202,9 @@ nmap <Space>bp $xyss)^<insert>p<ESC>A;
 nmap <Space>bP ^xds)
 "$this->つけてみる
 nmap <Space>$t ^<insert>$this-><ESC>
+
+"smartword
+map w  <Plug>(smartword-w)
+map b  <Plug>(smartword-b)
+map e  <Plug>(smartword-e)
+map ge  <Plug>(smartword-ge)
