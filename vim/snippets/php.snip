@@ -1,0 +1,19 @@
+snippet p
+	p(${1});
+
+snippet params
+	$params = [
+		'uri' => '${1}'
+		'values' => [
+			'${2}' => $${3},
+		],
+	];
+
+snippet create
+	$this->_resource->create(${1:$params})${2:->request();}
+snippet read
+	$this->_resource->read(${1:$params})${2:->getBody();}
+snippet update
+	$this->_resource->update(${1:$params})${2:->request();}
+snippet delete
+	$this->_resource->delete(${1:$params})${2:->request();}
