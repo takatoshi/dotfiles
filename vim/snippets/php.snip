@@ -3,7 +3,7 @@ snippet p
 
 snippet params
 	$params = [
-		'uri' => '${1}'
+		'uri' => '${1}',
 		'values' => [
 			'${2}' => $${3},
 		],
@@ -17,3 +17,5 @@ snippet update
 	$this->_resource->update(${1:$params})${2:->request();}
 snippet delete
 	$this->_resource->delete(${1:$params})${2:->request();}
+snippet redi
+	$this->_header->redirect(${1:'.');
