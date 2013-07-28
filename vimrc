@@ -182,11 +182,10 @@ let g:unite_source_menu_menus = {
 \   "shortcut" : {
 \       "description" : "sample unite-menu",
 \       "command_candidates" : [
-\           ["edit vimrc", "edit $MYVIMRC"],
-\           ["edit gvimrc", "edit $MYGVIMRC"],
 \           ["unite-file_mru", "Unite file_mru"],
 \           ["Unite Beautiful Attack", "Unite -auto-preview colorscheme"],
 \           ["unite-output:message", "Unite output:message"],
+\           ["Mapping", ":Unite output:map|map!|lmap"],
 \       ],
 \   },
 \}
@@ -196,9 +195,9 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 nnoremap <Space>uy :<C-u>Unite history/yank<CR>
 nnoremap <Space>ub :<C-u>Unite buffer<CR>
-nnoremap <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files -default-action=tabopen file<CR>
 nnoremap <Space>ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <Space>uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <Space>uu :<C-u>Unite file_mru buffer -default-action=tabopen<CR>
 
 "p()で囲ってみるテスト
 nmap <Space>bp $xyss)^<insert>p<ESC>A;
