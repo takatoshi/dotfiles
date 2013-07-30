@@ -79,3 +79,6 @@ NeoBundle 'scrooloose/nerdcommenter.git'
 
 "vimでGitを使う
 NeoBundle 'tpope/vim-fugitive'
+
+"ack.vim
+NeoBundle 'mileszs/ack.vim'
