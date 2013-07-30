@@ -133,7 +133,7 @@ if &t_Co > 2 || has('gui_running')
   syntax on
 endif
 "コマンドラインの高さ
-set cmdheight=2
+set cmdheight=1
 set laststatus=2
 "コマンドをステータス行表示
 set showcmd
