@@ -82,3 +82,9 @@ NeoBundle 'tpope/vim-fugitive'
 
 "ack.vim
 NeoBundle 'mileszs/ack.vim'
+
+"VimShell
+NeoBundle 'Shougo/vimshell.vim'
+
+"vimfiler
+NeoBundle 'Shougo/vimfiler.vim'
