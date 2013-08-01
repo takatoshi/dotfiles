@@ -23,3 +23,9 @@ snippet delete
 	$this->_resource->delete(${1:$params})${2:->request();}
 snippet redi
 	$this->_header->redirect(${1:'.');
+snippet form
+	BEAR::dependency('App_Form_${1}')->build();
+snippet resource
+	$this->_resource = BEAR::dependency('BEAR_Resource');
+snippet header
+	$this->_header = BEAR::dependency('BEAR_Page_Header');
