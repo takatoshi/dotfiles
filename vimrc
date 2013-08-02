@@ -269,3 +269,9 @@ let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 nnoremap <silent> <Leader>fe :<C-u>VimFilerExplorer<CR>
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir<CR>
+
+"-------------------------------------------------------------------------------
+" Alignta
+"-------------------------------------------------------------------------------
+vnoremap <silent> == :Align =><CR>
+vnoremap <silent> >> :Align >> =><CR>

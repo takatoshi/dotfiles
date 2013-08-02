@@ -88,3 +88,6 @@ NeoBundle 'Shougo/vimshell.vim'
 
 "vimfiler
 NeoBundle 'Shougo/vimfiler.vim'
+
+"alignta
+NeoBundle 'h1mesuke/vim-alignta'
