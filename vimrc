@@ -192,8 +192,8 @@ nnoremap <Space>ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <Space>uu :<C-u>Unite file_mru buffer -default-action=tabopen<CR>
 
 "p()で囲ってみるテスト
-nmap <Space>bp $xyss)^<insert>p<ESC>A;
-nmap <Space>bP ^xds)
+nmap <Leader>p $xyss)^<insert>p<ESC>A;
+nmap <Leader>P ^xds)
 "$this->つけてみる
 nmap <Space>$t <insert>$this-><ESC>
 
@@ -210,13 +210,13 @@ nnoremap <silent> [unite]u :<C-u>Unite<Space>
 "-------------------------------------------------------------------------------
 " unite-bear
 "-------------------------------------------------------------------------------
-nnoremap <Space>bh :<C-u>Unite bear/htdocs<CR>
-nnoremap <Space>ba :<C-u>Unite bear/App<CR>
-nnoremap <Space>bf :<C-u>Unite bear/Form<CR>
-"nnoremap <Space>bp :<C-u>Unite bear/Page<CR>
-nnoremap <Space>br :<C-u>Unite bear/Ro<CR>
-nnoremap <Space>bl :<C-u>Unite bear/libs<CR>
-nnoremap <Space>bv :<C-u>Unite bear/views<CR>
+nnoremap <Space>bh :<C-u>Unite bear/htdocs -default-action=tabopen<CR>
+nnoremap <Space>ba :<C-u>Unite bear/App -default-action=tabopen<CR>
+nnoremap <Space>bf :<C-u>Unite bear/Form -default-action=tabopen<CR>
+nnoremap <Space>bp :<C-u>Unite bear/Page<CR>
+nnoremap <Space>br :<C-u>Unite bear/Ro -default-action=tabopen<CR>
+nnoremap <Space>bl :<C-u>Unite bear/libs -default-action=tabopen<CR>
+nnoremap <Space>bv :<C-u>Unite bear/views -default-action=tabopen<CR>
 
 "-------------------------------------------------------------------------------
 " neosnippet
@@ -245,7 +245,7 @@ let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory= $HOME.'/.vim/snippets'
 
 "-------------------------------------------------------------------------------
 " vim-fugitive
@@ -257,7 +257,6 @@ nnoremap <silent> <Space>gs :Gstatus<CR>
 "-------------------------------------------------------------------------------
 " vimfiler
 "-------------------------------------------------------------------------------
-autocmd VimEnter * if !argc() | VimFilerCurrentDir | endif
 let g:vimfiler_edit_action = 'tabopen'
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_auto_cd = 1
