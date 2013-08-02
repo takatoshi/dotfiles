@@ -21,7 +21,7 @@ set t_Co=256
 "カラースキーム
 colorscheme jellybeans
 "現在のディレクトリを開いているディレクトリに変更
-set autochdir
+"set autochdir
 "<Leader>キーの設定
 let mapleader = " "
 "コマンドライン補完を便利に
@@ -61,20 +61,10 @@ imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
-"ビジュアルモード時vで行末まで選択
-vnoremap v $h
-"<C-[>での誤爆を防止する
-imap <C-@> <C-[>
 "保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 "保存時に空白行の削除
 "autocmd BufWritePre * :g/^$/d
-"insertモードを抜けるとIMEオフ
-"F4、F5でタブ移動
-map <F4> :tabprevious<CR>
-map <F5> :tabnext<CR>
-"F6で新規タブ
-map <f6> :tabnew<cr>
 "-------------------------------------------
 "検索設定
 "-------------------------------------------
@@ -263,3 +253,20 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 nnoremap <silent> <Space>gb :Gblame<CR>
 nnoremap <silent> <Space>gd :Gdiff<CR>
 nnoremap <silent> <Space>gs :Gstatus<CR>
+
+"-------------------------------------------------------------------------------
+" vimfiler
+"-------------------------------------------------------------------------------
+autocmd VimEnter * if !argc() | VimFilerCurrentDir | endif
+let g:vimfiler_edit_action = 'tabopen'
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_enable_auto_cd = 1
+let g:vimfiler_safe_mode_by_default = 0
+" Like Textmate icons.
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
+nnoremap <silent> <Leader>fe :<C-u>VimFilerExplorer<CR>
+nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir<CR>
