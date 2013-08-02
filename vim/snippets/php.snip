@@ -29,3 +29,20 @@ snippet resource
 	$this->_resource = BEAR::dependency('BEAR_Resource');
 snippet header
 	$this->_header = BEAR::dependency('BEAR_Page_Header');
+snippet set
+	$this->set('${1}', $${2});
+snippet func
+	/**
+	 * ${1}
+	 *
+	 * @return ${3:void}
+	 */
+	${4:public} function ${5}(${6})
+	{
+	}
+snippet comment
+	/**
+	 * ${1}
+	 *
+	 * @return ${2:void}
+	 */

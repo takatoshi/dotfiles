@@ -228,7 +228,6 @@ nnoremap <Space>br :<C-u>Unite bear/Ro<CR>
 nnoremap <Space>bl :<C-u>Unite bear/libs<CR>
 nnoremap <Space>bv :<C-u>Unite bear/views<CR>
 
-
 "-------------------------------------------------------------------------------
 " neosnippet
 "-------------------------------------------------------------------------------
