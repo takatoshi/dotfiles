@@ -89,5 +89,9 @@ NeoBundle 'Shougo/vimshell.vim'
 "vimfiler
 NeoBundle 'Shougo/vimfiler.vim'
 
-"alignta
+"alignta 配列などを整列
 NeoBundle 'h1mesuke/vim-alignta'
+
+"%でhtmlの開始・閉じタグにジャンプ
+NeoBundle 'matchit.zip'
+NeoBundle 'vimtaku/hl_matchit.vim.git'

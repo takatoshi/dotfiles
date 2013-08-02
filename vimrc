@@ -66,8 +66,11 @@ autocmd BufWritePre * :%s/\s\+$//ge
 "保存時に空白行の削除
 "autocmd BufWritePre * :g/^$/d
 "-------------------------------------------
-"検索設定
+"Search
 "-------------------------------------------
+"ハイライト
+set hlsearch
+hi Search term=reverse ctermfg=black ctermbg=yellow
 "検索時に大文字小文字を無視 (noignorecase:無視しない)
 set ignorecase
 "検索時に大文字を含んでいたら大/小を区別
@@ -141,20 +144,20 @@ let g:Powerline_symbols = 'fancy'
 autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 
 " Neocomplcacheの設定
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_enable_at_startup              = 1
+let g:neocomplcache_enable_camel_case_completion   = 1
+let g:neocomplcache_enable_underbar_completion     = 1
+let g:neocomplcache_smart_case                     = 1
+let g:neocomplcache_min_syntax_length              = 3
 let g:neocomplcache_manual_completion_start_length = 0
-let g:neocomplcache_caching_percent_in_statusline = 1
-let g:neocomplcache_enable_skip_completion = 1
-let g:neocomplcache_skip_input_time = '0.5'
+let g:neocomplcache_caching_percent_in_statusline  = 1
+let g:neocomplcache_enable_skip_completion         = 1
+let g:neocomplcache_skip_input_time                = '0.5'
 
 " syntastic設定
-let g:syntastic_check_on_open = 1
-let g:syntastic_auto_loc_list = 1
-"let g:syntastic_auto_jump = 1
+let g:syntastic_check_on_open   = 1
+let g:syntastic_auto_loc_list   = 1
+"let g:syntastic_auto_jump      = 1
 let g:syntastic_loc_list_height = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -181,10 +184,10 @@ let g:unite_source_menu_menus = {
 \       ],
 \   },
 \}
-let g:unite_enable_split_vertically = 1
-let g:unite_winwidth = 70
+let g:unite_enable_split_vertically    = 1
+let g:unite_winwidth                   = 70
 let g:unite_source_history_yank_enable = 1
-let g:unite_enable_start_insert = 1
+let g:unite_enable_start_insert        = 1
 nnoremap <Space>uy :<C-u>Unite history/yank<CR>
 nnoremap <Space>ub :<C-u>Unite buffer<CR>
 nnoremap <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files -default-action=tabopen file<CR>
@@ -257,15 +260,15 @@ nnoremap <silent> <Space>gs :Gstatus<CR>
 "-------------------------------------------------------------------------------
 " vimfiler
 "-------------------------------------------------------------------------------
-let g:vimfiler_edit_action = 'tabopen'
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_enable_auto_cd = 1
+let g:vimfiler_edit_action          = 'tabopen'
+let g:vimfiler_as_default_explorer  = 1
+let g:vimfiler_enable_auto_cd       = 1
 let g:vimfiler_safe_mode_by_default = 0
 " Like Textmate icons.
-let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_leaf_icon   = ' '
 let g:vimfiler_tree_opened_icon = '▾'
 let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = '-'
+let g:vimfiler_file_icon        = '-'
 let g:vimfiler_marked_file_icon = '*'
 nnoremap <silent> <Leader>fe :<C-u>VimFilerExplorer<CR>
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir<CR>
@@ -275,3 +278,18 @@ nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir<CR>
 "-------------------------------------------------------------------------------
 vnoremap <silent> == :Align =><CR>
 vnoremap <silent> >> :Align >> =><CR>
+
+"-------------------------------------------------------------------------------
+" matchit.vim
+"-------------------------------------------------------------------------------
+let b:match_ignorecase=0
+let b:match_words =
+ \  '<:>,' .
+ \  '<\@<=!\[CDATA\[:]]>,'.
+ \  '<\@<=!--:-->,'.
+ \  '<\@<=?\k\+:?>,'.
+ \  '<\@<=\([^ \t>/]\+\)\%(\s\+[^>]*\%([^/]>\|$\)\|>\|$\):<\@<=/\1>,'.
+ \  '<\@<=\%([^ \t>/]\+\)\%(\s\+[^/>]*\|$\):/>'
+let g:hl_matchit_enable_on_vim_startup = 1
+let g:hl_matchit_hl_groupname = 'Title'
+let g:hl_matchit_allow_ft_regexp = 'html\|vim\|ruby\|sh'
