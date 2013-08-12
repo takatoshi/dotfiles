@@ -19,7 +19,9 @@ set nobackup
 "terminalで256色使う
 set t_Co=256
 "カラースキーム
-colorscheme jellybeans
+if filereadable($HOME . "/.vim/bundle/jellybeans.vim/colors/jellybeans.vim")
+  colorscheme jellybeans
+endif
 "現在のディレクトリを開いているディレクトリに変更
 "set autochdir
 "<Leader>キーの設定
