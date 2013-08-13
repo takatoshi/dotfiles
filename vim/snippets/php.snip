@@ -22,7 +22,7 @@ snippet update
 snippet delete
 	$this->_resource->delete(${1:$params})${2:->request();}
 snippet redi
-	$this->_header->redirect(${1:'.');
+	$this->_header->redirect(${1:'.'});
 snippet form
 	BEAR::dependency('App_Form_${1}')->build();
 snippet resource
@@ -55,6 +55,61 @@ snippet onaction
 	 * @return void
 	 */
 	public function onAction(array $submit)
+	{
+	}
+snippet onclick
+	/**
+	 * onClick${1}
+	 *
+	 * @param array $values values
+	 *
+	 * @return void
+	 */
+	public function onClick$1(array $values)
+	{
+	}
+snippet oncreate
+	/**
+	 * Create
+	 *
+	 * @param array $args 引数
+	 *
+	 * @return void
+	 */
+	public function onCreate($args)
+	{
+	}
+snippet onread
+	/**
+	 * Read
+	 *
+	 * @param array $args 引数
+	 *
+	 * @return void
+	 */
+	public function onRead($args)
+	{
+	}
+snippet onupdate
+	/**
+	 * Update
+	 *
+	 * @param array $args 引数
+	 *
+	 * @return void
+	 */
+	public function onUpdate($args)
+	{
+	}
+snippet ondelete
+	/**
+	 * Delete*
+	 *
+	 * @param array $args 引数
+	 *
+	 * @return void
+	 */
+	public function onDelete($args)
 	{
 	}
 snippet com
