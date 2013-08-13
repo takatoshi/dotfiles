@@ -7,7 +7,6 @@ for file in ${DOT_FILES[@]}
 do
     rm -f $HOME/.$file
     ln -s $HOME/dotfiles/$file $HOME/.$file
-    source $HOME/.$file
 done
 
 #git設定
@@ -30,11 +29,16 @@ vim -c NeoBundleInstall -c q
 mkdir ~/libs
 cd ~/libs
 pear  config-create `pwd` .pearrc
+pear -c ./.pearrc config-set auto_discover 1
+pear -c ./.pearrc config-set preferred_state alpha
 pear -c ./.pearrc channel-update pear.php.net
 pear -c ./.pearrc install PEAR
-pear -c ./.pearrc channel-discover pear.bear-project.net
-pear -c ./.pearrc config-set auto_discover 1
-pear -c ./.pearrc install -a bear/BEAR-beta
+pear -c ./.pearrc upgrade pear/PEAR
+pear -c ./.pearrc upgrade-all
+
+# bearインストール
+# pear -c ./.pearrc channel-discover pear.bear-project.net
+# pear -c ./.pearrc install -a bear/BEAR-beta
 
 # ctagsインストール
 mkdir -p ~/local/src
@@ -66,5 +70,5 @@ sed -i '18s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE_
 git clone https://github.com/koriym/BEAR.Saturday.git
 rm -rf ~/libs/pear/php/PHP/CodeSniffer/Standards/BEAR
 cp -r BEAR.Saturday/data/phpcs/BEAR ~/libs/pear/php/PHP/CodeSniffer/Standards
-phpcs --config-set default-standard BEAR
+~/libs/pear/phpcs --config-set default-standard BEAR
 rm -rf BEAR.Saturday
