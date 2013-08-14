@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #シンボリックリンク作成
-DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile )
+DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile ctags)
 
 for file in ${DOT_FILES[@]}
 do
