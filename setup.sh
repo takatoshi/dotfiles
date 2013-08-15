@@ -1,84 +1,131 @@
 #!/bin/bash
 
-mkdir ~/libs
-mkdir -p ~/local/src
+make_directory()
+{
+    mkdir ~/libs
+    mkdir -p ~/local/src
+}
 
-# vimインストール
-cd ~/local/src/
-wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-tar jxf vim-7.4.tar.bz2
-cd vim74
-./configure --enable-multibyte --with-features=huge --disable-gui --without-x --prefix=$HOME/local --enable-rubyinterp --enable-pythoninterp --enable-perlinterp
-make && make install
-cd ~/
+install_vim()
+{
+    # vimインストール
+    cd ~/local/src/
+    wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
+    tar jxf vim-7.4.tar.bz2
+    cd vim74
+    ./configure --enable-multibyte --with-features=huge --disable-gui --without-x --prefix=$HOME/local --enable-rubyinterp --enable-pythoninterp --enable-perlinterp
+    make && make install
+    cd ~/
+}
 
 #シンボリックリンク作成
-DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile ctags)
+symbolic_link()
+{
+    DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile ctags)
 
-for file in ${DOT_FILES[@]}
-do
-    rm -f $HOME/.$file
-    ln -s $HOME/dotfiles/$file $HOME/.$file
-done
+    for file in ${DOT_FILES[@]}
+    do
+        rm -f $HOME/.$file
+        ln -s $HOME/dotfiles/$file $HOME/.$file
+    done
+}
 
 #git設定
-git config --global color.ui "auto"
-git config --global user.email $USER@$HOST
-git config --global user.name $USER
+init_git()
+{
+    git config --global color.ui "auto"
+    git config --global user.email $USER@$HOST
+    git config --global user.name $USER
+}
 
-
-#NeoBundleのサブモジュール
-git submodule init -- vim/bundle/neobundle.vim
-git submodule update -- vim/bundle/neobundle.vim
-#tmux-powerlineのサブモジュール
-git submodule init -- tmux-powerline
-git submodule update -- tmux-powerline
+#サブモジュールロード
+load_submodule()
+{
+    #NeoBundleのサブモジュール
+    git submodule init -- vim/bundle/neobundle.vim
+    git submodule update -- vim/bundle/neobundle.vim
+    #tmux-powerlineのサブモジュール
+    git submodule init -- tmux-powerline
+    git submodule update -- tmux-powerline
+}
 
 # NeoBundleInstall
-vim -c NeoBundleInstall -c q
+neobundle()
+{
+    vim -c NeoBundleInstall -c q
+}
 
-# pearを~/libsにインストール
-cd ~/libs
-pear  config-create `pwd` .pearrc
-pear -c ./.pearrc config-set auto_discover 1
-pear -c ./.pearrc config-set preferred_state alpha
-pear -c ./.pearrc channel-update pear.php.net
-pear -c ./.pearrc install PEAR
-pear -c ./.pearrc upgrade pear/PEAR
-pear -c ./.pearrc upgrade-all
-
-# bearインストール
-# pear -c ./.pearrc channel-discover pear.bear-project.net
-# pear -c ./.pearrc install -a bear/BEAR-beta
+# pearインストール
+install_pear()
+{
+    cd ~/libs
+    pear  config-create `pwd` .pearrc
+    pear -c ./.pearrc config-set auto_discover 1
+    pear -c ./.pearrc config-set preferred_state alpha
+    pear -c ./.pearrc channel-update pear.php.net
+    pear -c ./.pearrc install PEAR
+    pear -c ./.pearrc upgrade pear/PEAR
+    pear -c ./.pearrc upgrade-all
+    # bearインストール
+    # pear -c ./.pearrc channel-discover pear.bear-project.net
+    # pear -c ./.pearrc install -a bear/BEAR-beta
+}
 
 # ctagsインストール
-cd ~/local/src/
-wget http://ganmo.excite.co.jp/~mazda/src/ctags-5.8.tar.gz
-tar zxvf ctags-5.8.tar.gz
-cd ctags-5.8
-./configure --prefix=$HOME/local
-make && make install
+install_ctags()
+{
+    cd ~/local/src/
+    wget http://ganmo.excite.co.jp/~mazda/src/ctags-5.8.tar.gz
+    tar zxvf ctags-5.8.tar.gz
+    cd ctags-5.8
+    ./configure --prefix=$HOME/local
+    make && make install
+}
 
 # ackインストール
-cd ~/local/bin
-wget http://betterthangrep.com/ack-standalone
-mv ack-standalone ack
-chmod 744 ack
+install_ack()
+{
+    cd ~/local/bin
+    wget http://betterthangrep.com/ack-standalone
+    mv ack-standalone ack
+    chmod 744 ack
+}
 
 # phpmdインストール
-cd ~/libs
-pear -c ./.pearrc channel-discover pear.pdepend.org
-pear -c ./.pearrc install pdepend/PHP_Depend-beta
-pear -c ./.pearrc channel-discover pear.phpmd.org
-pear -c ./.pearrc install --alldeps phpmd/PHP_PMD-alpha
-sed -i '3s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' ~/libs/pear/phpmd
+install_phpmd()
+{
+    cd ~/libs
+    pear -c ./.pearrc channel-discover pear.pdepend.org
+    pear -c ./.pearrc install pdepend/PHP_Depend-beta
+    pear -c ./.pearrc channel-discover pear.phpmd.org
+    pear -c ./.pearrc install --alldeps phpmd/PHP_PMD-alpha
+    sed -i '3s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' ~/libs/pear/phpmd
+}
 
 # PHP_CodeSnifferインストール
-cd ~/libs
-pear -c ./.pearrc install PHP_CodeSniffer
-sed -i '18s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' ~/libs/pear/phpcs
-git clone https://github.com/koriym/BEAR.Saturday.git
-rm -rf ~/libs/pear/php/PHP/CodeSniffer/Standards/BEAR
-cp -r BEAR.Saturday/data/phpcs/BEAR ~/libs/pear/php/PHP/CodeSniffer/Standards
-~/libs/pear/phpcs --config-set default-standard BEAR
-rm -rf BEAR.Saturday
+install_phpcs()
+{
+    cd ~/libs
+    pear -c ./.pearrc install PHP_CodeSniffer
+    sed -i '18s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' ~/libs/pear/phpcs
+    git clone https://github.com/koriym/BEAR.Saturday.git
+    rm -rf ~/libs/pear/php/PHP/CodeSniffer/Standards/BEAR
+    cp -r BEAR.Saturday/data/phpcs/BEAR ~/libs/pear/php/PHP/CodeSniffer/Standards
+    ~/libs/pear/phpcs --config-set default-standard BEAR
+    rm -rf BEAR.Saturday
+}
+
+main()
+{
+    make_directory
+    install_vim
+    symbolic_link
+    init_git
+    load_submodule
+    neobundle
+    install_pear
+    install_ctags
+    install_ack
+    install_phpmd
+    install_phpcs
+}
