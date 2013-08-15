@@ -1,5 +1,17 @@
 #!/bin/bash
 
+mkdir ~/libs
+mkdir -p ~/local/src
+
+# vimインストール
+cd ~/local/src/
+wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
+tar jxf vim-7.4.tar.bz2
+cd vim74
+./configure --enable-multibyte --with-features=huge --disable-gui --without-x --prefix=$HOME/local --enable-rubyinterp --enable-pythoninterp --enable-perlinterp
+make && make install
+cd ~/
+
 #シンボリックリンク作成
 DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile ctags)
 
@@ -26,7 +38,6 @@ git submodule update -- tmux-powerline
 vim -c NeoBundleInstall -c q
 
 # pearを~/libsにインストール
-mkdir ~/libs
 cd ~/libs
 pear  config-create `pwd` .pearrc
 pear -c ./.pearrc config-set auto_discover 1
@@ -41,7 +52,6 @@ pear -c ./.pearrc upgrade-all
 # pear -c ./.pearrc install -a bear/BEAR-beta
 
 # ctagsインストール
-mkdir -p ~/local/src
 cd ~/local/src/
 wget http://ganmo.excite.co.jp/~mazda/src/ctags-5.8.tar.gz
 tar zxvf ctags-5.8.tar.gz
