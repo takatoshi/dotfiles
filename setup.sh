@@ -2,20 +2,20 @@
 
 make_directory()
 {
-    mkdir ~/libs
-    mkdir -p ~/local/src
+    mkdir $HOME/libs
+    mkdir -p $HOME/local/src
 }
 
 install_vim()
 {
     # vimインストール
-    cd ~/local/src/
+    cd $HOME/local/src/
     wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
     tar jxf vim-7.4.tar.bz2
     cd vim74
     ./configure --enable-multibyte --with-features=huge --disable-gui --without-x --prefix=$HOME/local --enable-rubyinterp --enable-pythoninterp --enable-perlinterp
     make && make install
-    cd ~/
+    cd $HOME/
 }
 
 #シンボリックリンク作成
@@ -41,6 +41,7 @@ init_git()
 #サブモジュールロード
 load_submodule()
 {
+    cd $HOME/dotfiles
     #NeoBundleのサブモジュール
     git submodule init -- vim/bundle/neobundle.vim
     git submodule update -- vim/bundle/neobundle.vim
@@ -58,7 +59,7 @@ neobundle()
 # pearインストール
 install_pear()
 {
-    cd ~/libs
+    cd $HOME/libs
     pear  config-create `pwd` .pearrc
     pear -c ./.pearrc config-set auto_discover 1
     pear -c ./.pearrc config-set preferred_state alpha
@@ -74,7 +75,7 @@ install_pear()
 # ctagsインストール
 install_ctags()
 {
-    cd ~/local/src/
+    cd $HOME/local/src/
     wget http://ganmo.excite.co.jp/~mazda/src/ctags-5.8.tar.gz
     tar zxvf ctags-5.8.tar.gz
     cd ctags-5.8
@@ -85,7 +86,7 @@ install_ctags()
 # ackインストール
 install_ack()
 {
-    cd ~/local/bin
+    cd $HOME/local/bin
     wget http://betterthangrep.com/ack-standalone
     mv ack-standalone ack
     chmod 744 ack
@@ -94,24 +95,24 @@ install_ack()
 # phpmdインストール
 install_phpmd()
 {
-    cd ~/libs
+    cd $HOME/libs
     pear -c ./.pearrc channel-discover pear.pdepend.org
     pear -c ./.pearrc install pdepend/PHP_Depend-beta
     pear -c ./.pearrc channel-discover pear.phpmd.org
     pear -c ./.pearrc install --alldeps phpmd/PHP_PMD-alpha
-    sed -i '3s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' ~/libs/pear/phpmd
+    sed -i '3s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' $HOME/libs/pear/phpmd
 }
 
 # PHP_CodeSnifferインストール
 install_phpcs()
 {
-    cd ~/libs
+    cd $HOME/libs
     pear -c ./.pearrc install PHP_CodeSniffer
-    sed -i '18s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' ~/libs/pear/phpcs
+    sed -i '18s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' $HOME/libs/pear/phpcs
     git clone https://github.com/koriym/BEAR.Saturday.git
-    rm -rf ~/libs/pear/php/PHP/CodeSniffer/Standards/BEAR
-    cp -r BEAR.Saturday/data/phpcs/BEAR ~/libs/pear/php/PHP/CodeSniffer/Standards
-    ~/libs/pear/phpcs --config-set default-standard BEAR
+    rm -rf $HOME/libs/pear/php/PHP/CodeSniffer/Standards/BEAR
+    cp -r BEAR.Saturday/data/phpcs/BEAR $HOME/libs/pear/php/PHP/CodeSniffer/Standards
+    $HOME/libs/pear/phpcs --config-set default-standard BEAR
     rm -rf BEAR.Saturday
 }
 
