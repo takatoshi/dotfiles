@@ -46,6 +46,8 @@ set softtabstop=2
 set tabstop=2
 set nowrap
 set showtabline=2
+nmap <C-h> :tabprevious<CR>
+nmap <C-l> :tabnext<CR>
 "カーソルのある行をハイライト(カレントウィンドウのみ)
 set cursorline
 highlight CursorLine ctermbg=Black
@@ -284,7 +286,6 @@ vnoremap <silent> >> :Align >> =><CR>
 "-------------------------------------------------------------------------------
 " matchit.vim
 "-------------------------------------------------------------------------------
-let b:match_ignorecase=0
 let b:match_words =
  \  '<:>,' .
  \  '<\@<=!\[CDATA\[:]]>,'.

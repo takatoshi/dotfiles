@@ -1,19 +1,23 @@
 #!/bin/bash
 
-make_directory()
-{
-    mkdir $HOME/libs
-    mkdir -p $HOME/local/src
-}
-
 install_vim()
 {
     # vimインストール
+    mkdir -p $HOME/local/src
     cd $HOME/local/src/
     wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
     tar jxf vim-7.4.tar.bz2
     cd vim74
-    ./configure --enable-multibyte --with-features=huge --disable-gui --without-x --prefix=$HOME/local --enable-rubyinterp --enable-pythoninterp --enable-perlinterp
+    ./configure --enable-multibyte \
+                --with-features=huge \
+                --disable-gui \
+                --without-x \
+                --prefix=$HOME/local \
+                --enable-rubyinterp \
+                --enable-pythoninterp \
+                --enable-perlinterp \
+                --enable-cscope \
+                --with-tlib=ncurses
     make && make install
     cd $HOME/
 }
@@ -59,6 +63,7 @@ neobundle()
 # pearインストール
 install_pear()
 {
+    mkdir -p $HOME/libs
     cd $HOME/libs
     pear  config-create `pwd` .pearrc
     pear -c ./.pearrc config-set auto_discover 1
@@ -75,6 +80,7 @@ install_pear()
 # ctagsインストール
 install_ctags()
 {
+    mkdir -p $HOME/local/src/
     cd $HOME/local/src/
     wget http://ganmo.excite.co.jp/~mazda/src/ctags-5.8.tar.gz
     tar zxvf ctags-5.8.tar.gz
@@ -86,6 +92,7 @@ install_ctags()
 # ackインストール
 install_ack()
 {
+    mkdir -p $HOME/local/bin
     cd $HOME/local/bin
     wget http://betterthangrep.com/ack-standalone
     mv ack-standalone ack
@@ -95,6 +102,7 @@ install_ack()
 # phpmdインストール
 install_phpmd()
 {
+    mkdir -p $HOME/libs
     cd $HOME/libs
     pear -c ./.pearrc channel-discover pear.pdepend.org
     pear -c ./.pearrc install pdepend/PHP_Depend-beta
@@ -106,6 +114,7 @@ install_phpmd()
 # PHP_CodeSnifferインストール
 install_phpcs()
 {
+    mkdir -p $HOME/libs
     cd $HOME/libs
     pear -c ./.pearrc install PHP_CodeSniffer
     sed -i '18s/^/set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__)."\/php");\n/' $HOME/libs/pear/phpcs
@@ -118,7 +127,6 @@ install_phpcs()
 
 main()
 {
-    make_directory
     install_vim
     symbolic_link
     init_git
