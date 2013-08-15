@@ -129,3 +129,10 @@ main()
     install_phpmd
     install_phpcs
 }
+
+if [ $# -eq 0 ];then
+    main
+    exit
+fi
+
+$1
