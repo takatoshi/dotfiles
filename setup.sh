@@ -25,7 +25,7 @@ install_vim()
 #シンボリックリンク作成
 symbolic_link()
 {
-    DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile ctags)
+    DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile ctags zlogout)
 
     for file in ${DOT_FILES[@]}
     do
