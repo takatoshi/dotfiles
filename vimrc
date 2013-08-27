@@ -124,7 +124,7 @@ set noerrorbells
 set novisualbell
 set visualbell t_vb=
 "タイトル
-set title
+"set title
 "ハイライト有効
 if &t_Co > 2 || has('gui_running')
   syntax on
