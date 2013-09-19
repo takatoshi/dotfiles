@@ -60,11 +60,6 @@ highlight CursorLine ctermfg=Blue
 set backspace=indent,eol,start
 "オートインデント
 set autoindent
-"インサートモードでもhjklで移動
-imap <C-j> <Down>
-imap <C-k> <Up>
-imap <C-h> <Left>
-imap <C-l> <Right>
 "保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 "保存時に空白行の削除
