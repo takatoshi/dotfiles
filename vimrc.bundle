@@ -46,7 +46,7 @@ NeoBundle 'thinca/vim-scouter'
 NeoBundle 'bling/vim-airline'
 
 "tmuxとのクリップボード連携
-"NeoBundle 'kana/vim-fakeclip'
+NeoBundle 'kana/vim-fakeclip'
 
 "違うウインドウのVimからでもヤンク
 NeoBundle 'vim-scripts/yanktmp.vim'
@@ -96,3 +96,6 @@ NeoBundle 'h1mesuke/vim-alignta'
 "%でhtmlの開始・閉じタグにジャンプ
 NeoBundle 'matchit.zip'
 NeoBundle 'vimtaku/hl_matchit.vim.git'
+
+"オートセーブ
+NeoBundle 'syui/wauto.vim'

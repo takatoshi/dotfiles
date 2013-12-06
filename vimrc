@@ -15,7 +15,7 @@ command! Rv source $MYVIMRC
 set noswapfile
 set nobackup
 "OSのクリップボードを使用する
-"set clipboard+=unnamed
+set clipboard+=unnamed
 "terminalで256色使う
 set t_Co=256
 "カラースキーム
@@ -291,3 +291,10 @@ let b:match_words =
 let g:hl_matchit_enable_on_vim_startup = 1
 let g:hl_matchit_hl_groupname = 'Title'
 let g:hl_matchit_allow_ft_regexp = 'html\|vim\|ruby\|sh'
+
+"-------------------------------------------------------------------------------
+" wauto.vim
+"-------------------------------------------------------------------------------
+nmap <Leader>s  <Plug>(AutoWriteStart)
+nmap <Leader>ss <Plug>(AutoWriteStop)
+let g:auto_write = 1
