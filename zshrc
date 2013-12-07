@@ -88,3 +88,5 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 export PATH=~/local/bin:~/libs/pear:~/bin:$PATH
 # HOSTをシェル内でも使えるように
 export HOST
+# rbenv設定
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
