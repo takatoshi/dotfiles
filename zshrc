@@ -88,3 +88,9 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 export PATH=/opt/chef/embedded/bin:~/local/bin:~/libs/pear:~/bin:$PATH
 # HOSTをシェル内でも使えるように
 export HOST
+# SVN_EDITOR
+export SVN_EDITOR='vim'
+# tmuxinator
+source ~/.tmuxinator/tmuxinator.zsh
+export SHELL='zsh'
+export EDITOR='vim'
