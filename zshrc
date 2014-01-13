@@ -90,3 +90,9 @@ export PATH=/opt/chef/embedded/bin:~/local/bin:~/libs/pear:~/bin:$PATH
 export HOST
 # rbenv設定
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# SVN_EDITOR
+export SVN_EDITOR='vim'
+# tmuxinator
+source ~/.tmuxinator/tmuxinator.zsh
+export SHELL='zsh'
+export EDITOR='vim'
