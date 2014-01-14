@@ -80,13 +80,7 @@ install_pear()
 # ctagsインストール
 install_ctags()
 {
-    mkdir -p $HOME/local/src/
-    cd $HOME/local/src/
-    wget http://ganmo.excite.co.jp/~mazda/src/ctags-5.8.tar.gz
-    tar zxvf ctags-5.8.tar.gz
-    cd ctags-5.8
-    ./configure --prefix=$HOME/local
-    make && make install
+    echo 'ctags'
 }
 
 # ackインストール
