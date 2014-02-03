@@ -99,3 +99,7 @@ NeoBundle 'vimtaku/hl_matchit.vim.git'
 
 "オートセーブ
 NeoBundle 'syui/wauto.vim'
+
+"TweetVim
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'basyura/twibill.vim'

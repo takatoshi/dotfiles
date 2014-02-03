@@ -39,12 +39,13 @@ set autoread
 "-------------------------------------------
 "行ナンバー表示
 set number
+"行の折り返し無し
+set nowrap
 "タブ周りの基本設定
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set nowrap
 set showtabline=2
 nmap <C-h> :tabprevious<CR>
 nmap <C-l> :tabnext<CR>
@@ -298,3 +299,8 @@ let g:hl_matchit_allow_ft = 'html\|vim\|ruby\|sh'
 nmap <Leader>s  <Plug>(AutoWriteStart)
 nmap <Leader>ss <Plug>(AutoWriteStop)
 let g:auto_write = 1
+
+"-------------------------------------------------------------------------------
+" TweetVim
+"-------------------------------------------------------------------------------
+nnoremap <silent> <Leader>tw :<C-u>TweetVimUserStream vim emacs lang:ja<CR>
