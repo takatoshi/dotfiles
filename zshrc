@@ -59,11 +59,11 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups
 setopt share_history
+# キーバインドをemacsに
+bindkey -e
 # history search
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
-# キーバインドをemacsに
-# bindkey -e
 # auto_cd
 setopt auto_cd
 # 移動したディレクトリを記憶
