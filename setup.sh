@@ -80,7 +80,17 @@ install_pear()
 # ctagsインストール
 install_ctags()
 {
-    echo 'ctags'
+    mkdir -p $HOME/local/bin
+    mkdir -p $HOME/local/src
+
+    cd $HOME/local/src/
+
+    wget http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz
+    tar zxf ctags-5.8.tar.gz
+    cd ctags-5.8
+    ./configure --prefix=$HOME/local
+    make
+    sudo make install
 }
 
 # ackインストール

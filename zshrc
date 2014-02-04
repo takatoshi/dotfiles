@@ -85,7 +85,7 @@ export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 alias gls="gls --color"
 zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 # PATHに追加
-export PATH=/opt/chef/embedded/bin:~/local/bin:~/libs/pear:~/bin:$PATH
+export PATH=/opt/chef/embedded/bin:~/local/bin:~/bin:$PATH
 # HOSTをシェル内でも使えるように
 export HOST
 # rbenv設定
