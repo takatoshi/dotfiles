@@ -96,3 +96,11 @@ export SVN_EDITOR='vim'
 source ~/.tmuxinator/tmuxinator.zsh
 export SHELL='zsh'
 export EDITOR='vim'
+# JAVA_HOME
+export JAVA_HOME=/Library/Java/Home
+# maven
+export PATH=/usr/share/mvn/bin:$PATH
+# hadoop
+export PATH=/usr/share/hadoop/bin:$PATH
+# mahout
+export PATH=/usr/share/mahout/bin:$PATH
