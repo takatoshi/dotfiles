@@ -43,10 +43,10 @@ set number
 set nowrap
 "タブ周りの基本設定
 set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set showtabline=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set showtabline=4
 nmap <C-h> :tabprevious<CR>
 nmap <C-l> :tabnext<CR>
 "カーソルのある行をハイライト(カレントウィンドウのみ)
@@ -93,8 +93,8 @@ noremap <C-M> <insert><CR><ESC>
 "-------------------------------------------
 "シンタックス設定
 "-------------------------------------------
-"phpのインデント設定
-au FileType php set ts=4 sw=4 softtabstop=4
+"htmlのインデント
+au FileType html set ts=2 sw=2 softtabstop=2
 "xでレジスタに入れないようにする
 nnoremap x "_x
 "テキスト幅
