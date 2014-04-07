@@ -51,6 +51,7 @@ nmap <C-h> :tabprevious<CR>
 nmap <C-l> :tabnext<CR>
 "カーソルのある行をハイライト(カレントウィンドウのみ)
 set cursorline
+set cursorcolumn
 highlight CursorLine ctermbg=Black
 highlight CursorLine ctermfg=Blue
 
