@@ -8,9 +8,6 @@ set nocompatible
 command! Ev edit $MYVIMRC
 command! Gv edit $MYGVIMRC
 command! Rv source $MYVIMRC
-"バックアップファイル、スワップファイル、viminfoファイル保存場所
-"set backupdir=$HOME/vimbackup
-"set directory=$HOME/vimbackup
 "バックアップファイル、スワップファイル、viminfoファイルを作成しない
 set noswapfile
 set nobackup
@@ -131,6 +128,8 @@ set cmdheight=1
 set laststatus=2
 "コマンドをステータス行表示
 set showcmd
+" ノーマルモード時だけ ; と : を入れ替える
+nnoremap ; :
 
 "autoload
 augroup vimrc-checktime
