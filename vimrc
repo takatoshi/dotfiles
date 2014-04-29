@@ -16,6 +16,7 @@ set clipboard+=unnamed
 "terminalで256色使う
 set t_Co=256
 "カラースキーム
+
 if filereadable($HOME . "/.vim/bundle/jellybeans.vim/colors/jellybeans.vim")
   colorscheme jellybeans
 endif
