@@ -26,4 +26,3 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 alias be="vim ~/.bashrc;source ~/.bashrc"
-zsh
