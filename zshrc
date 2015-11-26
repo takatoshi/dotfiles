@@ -2,16 +2,13 @@
 if [ $(uname) = "Darwin" ]; then
   alias ls='ls -Ga'
 
-  alias vm='VBoxManage startvm "Ubuntu 10.04.1" --type headless'
-  alias vmq='VBoxManage controlvm "Ubuntu 10.04.1" poweroff'
-  alias vmlogin='ssh -l takatoshi 192.168.56.100'
-
   # 言語
   export LANG=ja_JP.UTF-8
 
 elif [ $(uname) = "Linux" ]; then
   alias ls='ls -a --color=auto'
 fi
+
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
@@ -68,15 +65,18 @@ bindkey '^N' history-beginning-search-forward
 setopt auto_cd
 # 移動したディレクトリを記憶
 setopt auto_pushd
+setopt pushd_ignore_dups
 # コマンドミスを修正
 setopt correct
 # 補完候補を詰めて表示
 setopt list_packed
 # ビープ音を鳴らさない
 setopt nolistbeep
-# 先方予測機能有効
-# autoload predict-on
-# predict-on
+# 単語区切り設定
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars " /=;@:{},.|"
+zstyle ':zle:*' word-style unspecified
 # 補完候補のカラー表示
 zstyle ':completion:*' list-colors ''
 # lsと補完候補の色を揃える
@@ -86,7 +86,7 @@ alias gls="gls --color"
 zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 # PATHに追加
 # export PATH=/opt/chef/embedded/bin:~/local/bin:~/bin:/usr/local/bin:$PATH
-export PATH=~/local/bin:~/bin:/usr/local/bin:$PATH
+export PATH=~/local/bin:~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 # HOSTをシェル内でも使えるように
 export HOST
 # rbenv設定

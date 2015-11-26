@@ -113,7 +113,7 @@ set fileencodings=utf-8,iso-2022-jp,shift-jis,euc-jp
 set fileformats=unix,mac,dos
 "不可視文字を表示
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 "ビープ音をなくす
 set noerrorbells
 set novisualbell
