@@ -121,3 +121,7 @@ export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 export ANT_ROOT=/usr/local/bin
 export PATH=$ANT_ROOT:$PATH
 export NDK_MODULE_PATH=/Users/tactsh/AndroidDev
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=/Users/tactsh/cocos2d-x/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
