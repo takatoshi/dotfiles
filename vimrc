@@ -26,6 +26,7 @@ endif
 let mapleader = " "
 "コマンドライン補完を便利に
 set wildmenu
+
 "コマンドラインでの履歴の数
 set history=1000
 "コマンドラインに文字コード、改行コード表示
@@ -62,8 +63,9 @@ set backspace=indent,eol,start
 set autoindent
 "保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
-"保存時に空白行の削除
-"autocmd BufWritePre * :g/^$/d
+"保存時にタブをスペース4つに変換
+autocmd BufWritePre * :%s/	/    /ge
+
 "-------------------------------------------
 "Search
 "-------------------------------------------
