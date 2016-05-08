@@ -1,5 +1,35 @@
+ " Note: Skip initialization for vim-tiny or vim-small.
+ if 0 | endif
+
+ if &compatible
+   set nocompatible               " Be iMproved
+ endif
+
+ " Required:
+ set runtimepath^=~/.vim/bundle/neobundle.vim/
+
+ " Required:
+ call neobundle#begin(expand('~/.vim/bundle/'))
+
+ " Let NeoBundle manage NeoBundle
+ " Required:
+ NeoBundleFetch 'Shougo/neobundle.vim'
+
 "NeoBundleで管理しているプラグインを読み込む
 source ~/dotfiles/vimrc.bundle
+
+ " My Bundles here:
+ " Refer to |:NeoBundle-examples|.
+ " Note: You don't set neobundle setting in .gvimrc!
+
+ call neobundle#end()
+
+ " Required:
+ filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
+ NeoBundleCheck
 
 "vi互換モードオフ
 set nocompatible
@@ -64,7 +94,7 @@ set autoindent
 "保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 "保存時にタブをスペース4つに変換
-autocmd BufWritePre * :%s/	/    /ge
+autocmd BufWritePre * :%s/    /    /ge
 
 "-------------------------------------------
 "Search
