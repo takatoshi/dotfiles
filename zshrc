@@ -130,3 +130,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ANDROID_SDK_ROOT/tools/lib64
 # Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
 export COCOS_TEMPLATES_ROOT=/Users/tactsh/cocos2d-x/templates
 export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# rbenv
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"

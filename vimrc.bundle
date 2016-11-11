@@ -40,7 +40,6 @@ NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'thinca/vim-scouter'
 
 "PowerLine
-"NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'bling/vim-airline'
 
 "tmuxとのクリップボード連携
@@ -73,9 +72,6 @@ NeoBundle 'taglist.vim'
 " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
 NeoBundle 'camelcasemotion'
 
-" NERD_commenter.vim
-"NeoBundle 'scrooloose/nerdcommenter.git'
-
 "vimでGitを使う
 NeoBundle 'tpope/vim-fugitive'
 
@@ -101,3 +97,6 @@ NeoBundle 'syui/wauto.vim'
 "TweetVim
 NeoBundle 'basyura/TweetVim'
 NeoBundle 'basyura/twibill.vim'
+
+"ファイル名検索
+NeoBundle 'ctrlpvim/ctrlp.vim'
