@@ -3,7 +3,7 @@
 #シンボリックリンク作成
 symbolic_link()
 {
-    DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile ctags zlogout gitignore_global)
+    DOT_FILES=( zshrc vimrc vim tmux.conf gvimrc bashrc bash_profile ctags zlogout gitconfig gitignore_global)
 
     for file in ${DOT_FILES[@]}
     do

@@ -1,0 +1,14 @@
+[user]
+    name = tactsh
+    email = kobayashi.takatoshi@gmail.com
+[color]
+    ui = auto
+[core]
+    editor = /usr/bin/vim
+    excludesfile = /Users/tactsh/.gitignore_global
+[alias]
+    br = branch -v
+    st = status
+    ci = commit -v
+    co = checkout
+    difff = diff --word-diff
