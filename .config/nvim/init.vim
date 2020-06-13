@@ -41,9 +41,7 @@ set clipboard+=unnamed
 set t_Co=256
 "カラースキーム
 
-if filereadable($HOME . "/.vim/bundle/jellybeans.vim/colors/jellybeans.vim")
-  colorscheme jellybeans
-endif
+colorscheme jellybeans
 "現在のディレクトリを開いているディレクトリに変更
 "set autochdir
 "<Leader>キーの設定

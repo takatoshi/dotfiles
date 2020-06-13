@@ -7,7 +7,7 @@ symbolic_link()
     do
         [[ "$f" == ".git" ]] && continue
         [[ "$f" == ".DS_Store" ]] && continue
-        rm -f $HOME/$f
+        rm -rf $HOME/$f
         ln -s $HOME/dotfiles/$f $HOME/$f
     done
 }
