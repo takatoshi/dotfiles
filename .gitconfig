@@ -1,11 +1,11 @@
 [user]
-    name = tactsh
-    email = kobayashi.takatoshi@gmail.com
+    name = kobayashi
+    email = kobayashi@qone.co.jp
 [color]
     ui = auto
 [core]
-    editor = /usr/bin/vim
-    excludesfile = /Users/tactsh/.gitignore_global
+    editor = nvim
+    excludesfile = ~/.gitignore_global
 [alias]
     br = branch -v
     st = status
