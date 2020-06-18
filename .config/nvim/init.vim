@@ -124,10 +124,10 @@ set nolinebreak
 "勝手に改行されないようにする
 set formatoptions=q
 "ファイルを開いたときに、カレントディレクトリを変更
-augroup grlcd
-  autocmd!
-  autocmd BufEnter * lcd %:p:h
-augroup END
+"augroup grlcd
+"  autocmd!
+"  autocmd BufEnter * lcd %:p:h
+"augroup END
 "エンコーディング
 set termencoding=utf-8
 set encoding=utf-8
